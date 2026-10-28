@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rolanters · Projetos sobre Rolante/RS</title>
+<meta name="description" content="Impostômetro, Gastômetro e Câmeras: projetos abertos sobre Rolante/RS.">
+<link rel="canonical" href="https://rolanters.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://rolanters.com.br/">
+<meta property="og:title" content="Rolanters · Projetos sobre Rolante/RS">
+<meta property="og:description" content="Impostômetro, Gastômetro e Câmeras: projetos abertos sobre Rolante/RS.">
+<link rel="preload" href="fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>
+// Tema antes da primeira pintura. Mobile (<640px) é sempre escuro e ignora o localStorage.
+(function () {
+  var mobile = matchMedia("(max-width: 639px)");
+  function aplicar() {
+    var salvo;
+    try { salvo = localStorage.getItem("rolanters-theme"); } catch (e) {}
+    var escuro = mobile.matches || (salvo ? salvo === "escuro" : matchMedia("(prefers-color-scheme: dark)").matches);
+    document.documentElement.dataset.theme = escuro ? "escuro" : "claro";
+  }
+  aplicar();
+  mobile.addEventListener("change", aplicar);
+  window.rolantersTema = aplicar;
+})();
+</script>
+</head>
+<body>
+<header>
+  <button id="tema" type="button">
+    <svg class="lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+  </button>
+</header>
+
+<main>
+  <!-- Novo produto: copie um <a class="cartao">, troque slug, nome, subdomínio e descrição, e ponha os SVGs em assets/<slug>/ -->
+  <div class="grade">
+    <a class="cartao" href="https://impostometro.rolanters.com.br">
+      <div class="simbolo">
+        <img class="claro" src="assets/impostometro-rolante/mark.svg" alt="">
+        <img class="escuro" src="assets/impostometro-rolante/mark-dark.svg" alt="">
+      </div>
+      <div class="texto">
+        <h2 class="nome">Impostômetro <span>Rolante</span></h2>
+        <p class="desc">Mostra a receita acumulada de Rolante.</p>
+      </div>
+      <div class="rodape-cartao">
+        <span class="dominio">impostometro.rolanters.com.br</span>
+        <span class="acessar">Acessar →</span>
+      </div>
+    </a>
+
+    <a class="cartao" href="https://gastometro.rolanters.com.br">
+      <div class="simbolo">
+        <img class="claro" src="assets/gastometro-rolante/mark.svg" alt="">
+        <img class="escuro" src="assets/gastometro-rolante/mark-dark.svg" alt="">
+      </div>
+      <div class="texto">
+        <h2 class="nome">Gastômetro <span>Rolante</span></h2>
+        <p class="desc">Mostra para onde vão os gastos públicos de Rolante.</p>
+      </div>
+      <div class="rodape-cartao">
+        <span class="dominio">gastometro.rolanters.com.br</span>
+        <span class="acessar">Acessar →</span>
+      </div>
+    </a>
+
+    <a class="cartao" href="https://cameras.rolanters.com.br">
+      <div class="simbolo">
+        <img class="claro" src="assets/cameras-rolante/mark.svg" alt="">
+        <img class="escuro" src="assets/cameras-rolante/mark-dark.svg" alt="">
+      </div>
+      <div class="texto">
+        <h2 class="nome">Câmeras <span>Rolante</span></h2>
+        <p class="desc">Câmeras dos rios de Rolante para acompanhar as cheias.</p>
+      </div>
+      <div class="rodape-cartao">
+        <span class="dominio">cameras.rolanters.com.br</span>
+        <span class="acessar">Acessar →</span>
+      </div>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-in">Rolante - RS 🧉</div>
+</footer>
+
+<script>
+var botao = document.getElementById("tema");
+function rotulo() {
+  var escuro = document.documentElement.dataset.theme === "escuro";
+  botao.title = botao.ariaLabel = escuro ? "Ativar modo claro" : "Ativar modo escuro";
+}
+botao.addEventListener("click", function () {
+  var escuro = document.documentElement.dataset.theme === "escuro";
+  try { localStorage.setItem("rolanters-theme", escuro ? "claro" : "escuro"); } catch (e) {}
+  rolantersTema();
+  rotulo();
+});
+rotulo();
+</script>
+</body>
+</html>
