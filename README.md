@@ -15,8 +15,8 @@
 
 ## O que é
 
-Uma página única que lista os projetos Rolante e leva o visitante ao site de cada um: Impostômetro, Gastômetro e
-Câmeras. O portal não tem dado próprio, só links. Cada projeto mostra a sua fonte no seu próprio site.
+Uma página única que lista os projetos Rolante e leva o visitante ao site de cada um: Impostômetro, Gastômetro,
+Câmeras e Licitações. O portal não tem dado próprio, só links. Cada projeto mostra a sua fonte no seu próprio site.
 
 Site independente, sem vínculo com a prefeitura.
 
@@ -34,7 +34,7 @@ Site independente, sem vínculo com a prefeitura.
 ```mermaid
 flowchart LR
     V["Visitante"] -- "abre rolanters.com.br" --> P["Portal<br/>(GitHub Pages)"]
-    P -- "clica no cartão" --> S["impostometro. · gastometro. · cameras.<br/>(rolanters.com.br)"]
+    P -- "clica no cartão" --> S["impostometro. · gastometro. · cameras. · licitacoes.<br/>(rolanters.com.br)"]
     P -. "guarda o tema" .-> L[("localStorage")]
 ```
 
