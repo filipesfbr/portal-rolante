@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rolante</title>
-<meta name="description" content="Impostômetro, Gastômetro, Câmeras e Licitações: projetos abertos sobre Rolante/RS.">
+<meta name="description" content="Impostômetro, Gastômetro, Licitações, Emendas e Câmeras: projetos abertos sobre Rolante/RS.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧉</text></svg>">
 <link rel="canonical" href="https://rolanters.com.br/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://rolanters.com.br/">
 <meta property="og:title" content="Rolante">
-<meta property="og:description" content="Impostômetro, Gastômetro, Câmeras e Licitações: projetos abertos sobre Rolante/RS.">
+<meta property="og:description" content="Impostômetro, Gastômetro, Licitações, Emendas e Câmeras: projetos abertos sobre Rolante/RS.">
 <link rel="preload" href="fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <script>
@@ -40,6 +40,7 @@
 
 <main>
   <!-- Novo produto: copie um <a class="cartao">, troque slug, nome, subdomínio e descrição, e ponha os SVGs em assets/<slug>/ -->
+  <div class="carrossel">
   <div class="grade">
     <a class="cartao" href="https://impostometro.rolanters.com.br">
       <div class="simbolo">
@@ -83,6 +84,20 @@
       </div>
     </a>
 
+    <a class="cartao" href="https://emendas.rolanters.com.br">
+      <div class="simbolo">
+        <img class="claro" src="assets/emendas-rolante/mark.svg" alt="">
+        <img class="escuro" src="assets/emendas-rolante/mark-dark.svg" alt="">
+      </div>
+      <div class="texto">
+        <h2 class="nome">Emendas <span>Rolante</span></h2>
+        <p class="desc">Mostra quem enviou emendas para Rolante e o que foi feito com o dinheiro.</p>
+      </div>
+      <div class="rodape-cartao">
+        <span class="dominio">emendas.rolanters.com.br</span>
+      </div>
+    </a>
+
     <a class="cartao" href="https://cameras.rolanters.com.br">
       <div class="simbolo">
         <img class="claro" src="assets/cameras-rolante/mark.svg" alt="">
@@ -96,6 +111,7 @@
         <span class="dominio">cameras.rolanters.com.br</span>
       </div>
     </a>
+  </div>
   </div>
 </main>
 
@@ -116,6 +132,23 @@ botao.addEventListener("click", function () {
   rotulo();
 });
 rotulo();
+
+// Desktop: duplica os cartões para o carrossel girar sem emenda. Ver .carrossel em style.css.
+var grade = document.querySelector(".grade");
+var carrosselOn = matchMedia("(min-width: 640px) and (prefers-reduced-motion: no-preference)");
+function carrossel() {
+  grade.querySelectorAll("[data-clone]").forEach(function (c) { c.remove(); });
+  if (!carrosselOn.matches) return;
+  Array.from(grade.children).forEach(function (c) {
+    var copia = c.cloneNode(true);
+    copia.dataset.clone = "";
+    copia.ariaHidden = "true";
+    copia.tabIndex = -1;
+    grade.append(copia);
+  });
+}
+carrossel();
+carrosselOn.addEventListener("change", carrossel);
 </script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6e3fd0f72a5942b48256596db93a8d95"}'></script>
 </body>

@@ -92,6 +92,16 @@ main {
   gap: 16px;
 }
 
+/* desktop: cartões giram da direita para a esquerda (clones feitos no script do index.html) */
+@media (min-width: 640px) and (prefers-reduced-motion: no-preference) {
+  main { max-width: none; padding-left: 0; padding-right: 0; }
+  .carrossel { overflow: hidden; }
+  .grade { display: flex; gap: 0; width: max-content; animation: girar 35s linear infinite; }
+  .grade:hover, .grade:focus-within { animation-play-state: paused; }
+  .grade .cartao { flex: none; width: 260px; margin-right: 16px; }
+}
+@keyframes girar { to { transform: translateX(-50%); } }
+
 .cartao {
   display: flex;
   flex-direction: column;
