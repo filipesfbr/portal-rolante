@@ -38,7 +38,6 @@ body {
   flex-direction: column;
   background: var(--bg);
   position: relative;
-  z-index: 0; /* cria o contexto de empilhamento: o monte de moedas (.queda) fica atrás dos cartões */
   color: var(--ink);
   font-family: Inter, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -92,14 +91,6 @@ main {
   padding-bottom: 0;
 }
 
-/* torneira de parede colada na esquerda da página: moedas caem até o rodapé e enchem uma pilha (decorativa; JS no index.html) */
-.torneira { position: absolute; top: 20px; left: 0; pointer-events: none; }
-.torneira svg { display: block; width: 150px; height: auto; overflow: visible; }
-.torneira .metal { fill: var(--accent); }
-.torneira .brilho { fill: var(--tile); opacity: .55; }
-.torneira .anel { fill: var(--ink); opacity: .3; }
-.torneira .linha { fill: none; stroke: var(--tile); stroke-width: 3; stroke-linecap: round; opacity: .55; }
-.queda { position: absolute; z-index: -1; top: 0; left: 0; overflow: hidden; pointer-events: none; }
 
 .grade {
   display: grid;
@@ -183,5 +174,4 @@ footer { position: relative; border-top: 1px solid var(--border); }
 /* mobile: sempre escuro (ver script no head), sem botão de tema */
 @media (max-width: 639px) {
   #tema { display: none; }
-  main { padding-bottom: 72px; } /* folga entre o último cartão e o rodapé (chão): deixa as moedas caindo visíveis */
 }
