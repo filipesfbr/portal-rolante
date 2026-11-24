@@ -243,7 +243,9 @@ carrosselOn.addEventListener("change", carrossel);
     var moeda = document.createElementNS(NS, "use");
     moeda.setAttribute("href", "#m" + Math.floor(Math.random() * 3));
     moeda.setAttribute("transform", "scale(" + d / 14 * 1.65 + ")");
-    var fim = "scale(" + (.8 + Math.random() * .2) + " 1) rotate(" + (Math.random() * 60 - 30) + ")";
+    var esc = .8 + Math.random() * .2, ang = Math.random() * 60 - 30;
+    var fim = "scale(" + esc + " 1) rotate(" + ang + ")";             // atributo SVG
+    var fimCss = "scale(" + esc + ", 1) rotate(" + ang + "deg)";      // keyframe CSS exige vírgula e unidade
     pos.setAttribute("transform", "translate(" + v.x + " " + (piso - v.y) + ")");
     giro.setAttribute("transform", fim);
     giro.append(moeda);
@@ -272,7 +274,7 @@ carrosselOn.addEventListener("change", carrossel);
       { transform: "scaleX(1)", offset: o1 * .5 },
       { transform: "scaleX(.2)", offset: o1 * .75 },
       { transform: "scaleX(1)", offset: o1 },
-      { transform: fim }
+      { transform: fimCss }
     ], { duration: total });
   }
 
