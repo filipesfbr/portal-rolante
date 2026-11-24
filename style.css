@@ -183,4 +183,5 @@ footer { position: relative; border-top: 1px solid var(--border); }
 /* mobile: sempre escuro (ver script no head), sem botão de tema */
 @media (max-width: 639px) {
   #tema { display: none; }
+  main { padding-bottom: 72px; } /* folga entre o último cartão e o rodapé (chão): deixa as moedas caindo visíveis */
 }
