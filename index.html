@@ -36,7 +36,6 @@
 
 <main>
   <!-- Novo produto: copie um <a class="cartao">, troque slug, nome, subdomínio e descrição, e ponha os SVGs em assets/<slug>/ -->
-  <div class="carrossel">
   <div class="grade">
     <a class="cartao" href="https://impostometro.rolanters.com.br">
       <div class="simbolo">
@@ -45,7 +44,7 @@
       </div>
       <div class="texto">
         <h2 class="nome">Impostômetro <span>Rolante</span></h2>
-        <p class="desc">Mostra a receita acumulada de Rolante.</p>
+        <p class="desc">Quanto Rolante já arrecadou de impostos este ano</p>
       </div>
       <div class="rodape-cartao">
         <span class="dominio">impostometro.rolanters.com.br</span>
@@ -59,7 +58,7 @@
       </div>
       <div class="texto">
         <h2 class="nome">Gastômetro <span>Rolante</span></h2>
-        <p class="desc">Mostra para onde vão os gastos públicos de Rolante.</p>
+        <p class="desc">Para onde vai o dinheiro público de Rolante</p>
       </div>
       <div class="rodape-cartao">
         <span class="dominio">gastometro.rolanters.com.br</span>
@@ -73,7 +72,7 @@
       </div>
       <div class="texto">
         <h2 class="nome">Licitações <span>Rolante</span></h2>
-        <p class="desc">Mostra o que a Prefeitura está licitando e quem venceu.</p>
+        <p class="desc">O que a Prefeitura compra e quem vende</p>
       </div>
       <div class="rodape-cartao">
         <span class="dominio">licitacoes.rolanters.com.br</span>
@@ -87,7 +86,7 @@
       </div>
       <div class="texto">
         <h2 class="nome">Emendas <span>Rolante</span></h2>
-        <p class="desc">Mostra quem enviou emendas para Rolante e o que foi feito com o dinheiro.</p>
+        <p class="desc">Quem mandou emendas para Rolante e onde o dinheiro foi usado</p>
       </div>
       <div class="rodape-cartao">
         <span class="dominio">emendas.rolanters.com.br</span>
@@ -101,13 +100,12 @@
       </div>
       <div class="texto">
         <h2 class="nome">Câmeras <span>Rolante</span></h2>
-        <p class="desc">Câmeras dos rios de Rolante para acompanhar as cheias.</p>
+        <p class="desc">Veja como estão os rios de Rolante agora</p>
       </div>
       <div class="rodape-cartao">
         <span class="dominio">cameras.rolanters.com.br</span>
       </div>
     </a>
-  </div>
   </div>
 </main>
 
@@ -134,22 +132,6 @@ botao.addEventListener("click", function () {
 });
 rotulo();
 
-// Desktop: duplica os cartões para o carrossel girar sem emenda. Ver .carrossel em style.css.
-var grade = document.querySelector(".grade");
-var carrosselOn = matchMedia("(min-width: 640px) and (prefers-reduced-motion: no-preference)");
-function carrossel() {
-  grade.querySelectorAll("[data-clone]").forEach(function (c) { c.remove(); });
-  if (!carrosselOn.matches) return;
-  Array.from(grade.children).forEach(function (c) {
-    var copia = c.cloneNode(true);
-    copia.dataset.clone = "";
-    copia.ariaHidden = "true";
-    copia.tabIndex = -1;
-    grade.append(copia);
-  });
-}
-carrossel();
-carrosselOn.addEventListener("change", carrossel);
 </script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6e3fd0f72a5942b48256596db93a8d95"}'></script>
 </body>
